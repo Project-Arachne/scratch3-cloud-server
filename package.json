@@ -1,0 +1,19 @@
+{
+  "name": "scratch3-cloud-server",
+  "version": "1.0",
+  "description": "Server using scratch-api to connect cloud variables and facilitate packet transfer",
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Project-Arachne/scratch3-cloud-server.git"
+  },
+  "author": "Project-Arachne",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Project-Arachne/scratch3-cloud-server/issues"
+  },
+  "homepage": "https://github.com/trumank/scratch-api",
+  "dependencies": {
+    "scratch-api": "^1.1.11"
+  }
+}
