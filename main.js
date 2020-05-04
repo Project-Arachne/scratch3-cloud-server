@@ -10,7 +10,7 @@ prompt.get(['project1', 'project2'], function (err, result) {
   if (err) {console.log("Error:", err);}
   var project1= result.project1;
   var project2= result.project2;
-  }
+  });
 prompt.stop();
 
 Scratch.UserSession.load(function(err, user) { //get the username/password from file or prompt for it
