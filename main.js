@@ -13,17 +13,19 @@ prompt.get(['project1', 'project2'], function (err, result) {
   prompt.message="Please enter your ";
   Scratch.UserSession.load(function(err, user) { //get the username/password from file or prompt for it
     
-    var p1=user.cloudSession(project1, function(err, cloud) { //start a cloud session
-      cloud.on('set', function(name, value) { //when any variable is set,
+    user.cloudSession(project1, function(err, cloud) { //start a cloud session
+      var p1=cloud
+      p1.on('set', function(name, value) { //when any variable is set,
         console.log("Project 1:", name, " changed to ", value, "."); //log it
-        cloud.set(name, 0) //set it to zero
+        p1.set(name, 0) //set it to zero
       });
     });
 
-    var p2=user.cloudSession(project2, function(err, cloud) { //start a cloud session (project 2)
-      cloud.on('set', function(name, value) { //when any variable is set,
+    user.cloudSession(project2, function(err, cloud) { //start a cloud session (project 2)
+      var p2=cloud
+      p2.on('set', function(name, value) { //when any variable is set,
         console.log("Project 2:", name, " changed to ", value, "."); //log it
-        cloud.set(name, 0) //set it to zero
+        p2.set(name, 0) //set it to zero
       });
     });
   });
