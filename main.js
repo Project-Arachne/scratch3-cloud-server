@@ -16,14 +16,14 @@ prompt.get(['project1', 'project2'], function (err, result) {
     user.cloudSession(project1, function(err, cloud) { //start a cloud session
       cloud.on('set', function(name, value) { //when any variable is set,
         console.log("Project 1:", name, " changed to ", value, "."); //log it
-        cloud.set(name, value+1) //set it to itself +1
+        cloud.set(name, 0) //set it to itself +1
       });
     });
 
     user.cloudSession(project2, function(err, cloud) { //start a cloud session (project 2)
       cloud.on('set', function(name, value) { //when any variable is set,
         console.log("Project 2:", name, " changed to ", value, "."); //log it
-        cloud.set(name, value+1) //set it to itself +1
+        cloud.set(name, 0) //set it to itself +1
       });
     });
   });
