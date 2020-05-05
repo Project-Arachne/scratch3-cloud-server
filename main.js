@@ -2,7 +2,7 @@ var Scratch = require('scratch-api');
 const prompt = require('prompt');
 
 prompt.message = "What is the id number of ";
-prompt.delimiter = ">";
+prompt.delimiter = "";
 
 prompt.start();
 
@@ -10,7 +10,7 @@ prompt.get(['project1', 'project2'], function (err, result) {
   if (err) {console.log("Error:", err);}
   var project1= result.project1;
   var project2= result.project2;
-  
+  prompt.message="Please enter your ";
   Scratch.UserSession.load(function(err, user) { //get the username/password from file or prompt for it
   
     user.cloudSession(project1, function(err, cloud) { //start a cloud session
@@ -28,5 +28,5 @@ prompt.get(['project1', 'project2'], function (err, result) {
     });
   });
 });
-prompt.stop();
+//prompt.stop();
 
