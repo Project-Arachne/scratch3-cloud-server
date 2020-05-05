@@ -28,5 +28,5 @@ prompt.get(['project1', 'project2'], function (err, result) {
     });
   });
 });
-//prompt.stop();
+//prompt.stop(); //This returns an error, probably because Scratch.UserSession.load also uses prompt and probably calls stop();
 
