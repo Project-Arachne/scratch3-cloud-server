@@ -18,7 +18,7 @@ prompt.get(['project1', 'project2'], function (err, result) {
       p1=cloud
       p1.on('set', function(name, value) { //when any variable is set,
         console.log("Project 1:", name, " changed to ", value, "."); //log it
-        p2.set(name, value); //set it to project 2
+        p2.set(name, value); //set the same variable in project 2
       });
     });
 
@@ -26,7 +26,7 @@ prompt.get(['project1', 'project2'], function (err, result) {
       p2=cloud
       p2.on('set', function(name, value) { //when any variable is set,
         console.log("Project 2:", name, " changed to ", value, "."); //log it
-        p1.set(name, value); //set it to project 1
+        p1.set(name, value); //set the same variable in project 1
       });
     });
   });
