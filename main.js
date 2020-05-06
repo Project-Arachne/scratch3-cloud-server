@@ -10,8 +10,8 @@ function connect(id, user) { //TODO: allow option to not listen to changes in th
       console.log("Project", session, "-", name, " changed to ", value, "."); //log it
       //session.set(name, value); //do something
     });
+    return session; //return the session
   });
-  return session; //return the session
 }
 
 
