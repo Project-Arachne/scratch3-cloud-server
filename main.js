@@ -20,6 +20,7 @@ function listen_for_change(session) {
 function on_change(name,value,session) {
   console.log("Project", session.projectID, "-", name, " changed to ", value, "."); //log it
   session.set(name, 0); //do something
+  console.log("Set", name, "to 0.")
 }
 
 
