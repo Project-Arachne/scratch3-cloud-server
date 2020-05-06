@@ -6,12 +6,20 @@ const prompt = require('prompt');
 function connect(id, user) { //TODO: allow option to not listen to changes in the variables
   user.cloudSession(id, function(err, cloud) { //start a cloud session
     var session=cloud;
-    session.on('set', function(name, value) { //when any variable is set,
-      console.log("Project", session.projectID, "-", name, " changed to ", value, "."); //log it
-      //session.set(name, value); //do something
-    });
+    listen_for_change(session);
     return session; //return the session
   });
+}
+
+function listen_for_change(session) {
+  session.on('set', function(name, value) { //when any variable is set,
+    on_change(name,value,session);
+  });
+}
+
+function on_change(name,value,session) {
+  console.log("Project", session.projectID, "-", name, " changed to ", value, "."); //log it
+  //session.set(name, value); //do something
 }
 
 
