@@ -34,7 +34,7 @@ prompt.get(['dns'], function (err, result) {
     var p2;
     
     var dns_session=connect(dns,user); //connect to DNS project
-    console.log("DNS session started:", dns_session;
+    console.log("DNS session started:", dns_session);
   });
 });
 //prompt.stop(); //This returns an error, probably because Scratch.UserSession.load also uses prompt and probably calls stop();
