@@ -3,7 +3,7 @@ var decoder = require('./decode.js'); //TODO: implement this
 const prompt = require('prompt');
 
 //Functions
-function loadDNS(id,user){
+function load_DNS(id,user){
   user.getProject(id, function(err,project){
     console.log(project)
   });
