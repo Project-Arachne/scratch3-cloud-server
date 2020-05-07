@@ -9,7 +9,7 @@ To run:
 
 Install node.js
 
-`git clone` or download this repository
+`git clone https://github.com/Project-Arachne/scratch3-cloud-server.git` or download this repository
 
 Run `node main.js`
 
@@ -19,4 +19,4 @@ You will also be asked to log in to your account with your username and password
 
 After this, the project should start syncing the two specified projects. 
 
-**Note:** You will need to reload the scratch projects if they were open before you started the server.
+**Note:** You may need to reload the scratch projects you are connecting to if they were open before you started the server.
