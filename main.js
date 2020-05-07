@@ -10,7 +10,7 @@ function load_DNS(id,user){
     console.log("Before parse:", project);
     if (dns) {
       dns=false;
-      var parsed = JSON.parse(project.toString().trim());
+      parsed = JSON.parse(project.toString().trim());
       console.log("Project:", parsed);
     }
     
