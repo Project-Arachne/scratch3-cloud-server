@@ -5,7 +5,8 @@ const prompt = require('prompt');
 //Functions
 function load_DNS(id,user){
   user.getProject(id, function(err,project){
-    console.log(project)
+    var parsed = JSON.parse(project);
+    console.log(parsed)
   });
 };
 
