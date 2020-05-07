@@ -3,6 +3,12 @@ var decoder = require('./decode.js'); //TODO: implement this
 const prompt = require('prompt');
 
 //Functions
+function loadDNS(id,user){
+  user.getProject(id, function(err,project){
+    console.log(project)
+  });
+};
+
 function connect(id, user) { //TODO: allow option to not listen to changes in the variables
   user.cloudSession(id, function(err, cloud) { //start a cloud session
     var session=cloud;
@@ -42,8 +48,10 @@ prompt.get(['dns'], function (err, result) {
     //var p1;
     //var p2;
     
-    var dns_session=connect(dns,user); //connect to DNS project
-    console.log("DNS session started:", dns_session);
+    load_DNS(dns,user);
+    
+    //var dns_session=connect(dns,user); //connect to DNS project
+    //console.log("DNS session started:", dns_session);
   });
 });
 //prompt.stop(); //This returns an error, probably because Scratch.UserSession.load also uses prompt and probably calls stop();
