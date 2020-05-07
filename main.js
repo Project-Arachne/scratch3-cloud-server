@@ -8,7 +8,7 @@ function load_DNS(id,user){
   var parsed;
   user.getProject(id, function(err,project){
     console.log("Before parse:", project);
-    if (dns) {
+    if (dns==true) {
       dns=false;
       parsed = JSON.parse(project.toString().trim());
       console.log("Project:", parsed);
