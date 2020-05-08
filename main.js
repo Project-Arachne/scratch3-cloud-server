@@ -12,6 +12,7 @@ function load_DNS(id,user){
     console.log("DNS=", has_dns);
     if (has_dns==true) {
       has_dns=false;
+      console.log("DNS set to", has_dns);
       parsed = JSON.parse(project.toString().trim());
       console.log("Project:", parsed);
     }
