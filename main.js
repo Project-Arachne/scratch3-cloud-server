@@ -5,16 +5,15 @@ const prompt = require('prompt');
 //Functions
 function load_DNS(id,user){
   console.log("Loading DNS")
-  var dns=true;
+  var has_dns=true;
   var parsed;
   user.getProject(id, function(err,project){
     console.log("Before parse:", project);
-    if (dns==true) {
-      dns=false;
+    if (has_dns==true) {
+      has_dns=false;
       parsed = JSON.parse(project.toString().trim());
       console.log("Project:", parsed);
     }
-    
   });
 }
 
