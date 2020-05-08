@@ -9,6 +9,7 @@ function load_DNS(id,user){
   var parsed;
   user.getProject(id, function(err,project){
     console.log("Before parse:", project);
+    console.log("DNS=", has_dns);
     if (has_dns==true) {
       has_dns=false;
       parsed = JSON.parse(project.toString().trim());
@@ -55,7 +56,7 @@ prompt.get(['dns'], function (err, result) {
   Scratch.UserSession.load(function(err, user) { //get the username/password from file or prompt for it
     //var p1;
     //var p2;
-    
+    console.log("Session loaded")
     load_DNS(dns,user);
     
     //var dns_session=connect(dns,user); //connect to DNS project
