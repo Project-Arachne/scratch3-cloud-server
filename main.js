@@ -8,9 +8,10 @@ function load_DNS(id,user){
   var has_dns=true;
   var parsed;
   user.getProject(id, function(err,project){
+    if (err) {console.log("Error:",err);};
     console.log("Before parse:", project);
     console.log("DNS=", has_dns);
-    if (has_dns==true) {
+    if (has_dns) {
       has_dns=false;
       console.log("DNS set to", has_dns);
       parsed = JSON.parse(project.toString().trim());
