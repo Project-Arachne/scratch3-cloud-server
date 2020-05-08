@@ -15,7 +15,7 @@ function load_DNS(id,user){
     }
     
   });
-};
+}
 
 function connect(id, user) { //TODO: allow option to not listen to changes in the variables
   user.cloudSession(id, function(err, cloud) { //start a cloud session
