@@ -3,22 +3,6 @@ var decoder = require('./decode.js'); //TODO: implement this
 const prompt = require('prompt');
 
 //Functions
-function load_DNS(id,user){
-  console.log("Loading DNS")
-  var has_dns=true;
-  var parsed;
-  user.getProject(id, function(err,project){
-    if (err) {console.log("Error:",err);};
-    console.log("Before parse:", project);
-    console.log("DNS=", has_dns);
-    if (has_dns) {
-      has_dns=false;
-      console.log("DNS set to", has_dns);
-      parsed = JSON.parse(project.toString().trim());
-      console.log("Project:", parsed);
-    }
-  });
-}
 
 function connect(id, user) { //TODO: allow option to not listen to changes in the variables
   user.cloudSession(id, function(err, cloud) { //start a cloud session
@@ -61,31 +45,16 @@ prompt.get(['dns'], function (err, result) {
 }).then(function(err,user) {
   if (err) {console.log("Error 1:", err);};
   console.log("Session loaded");
-  console.log("Loading DNS")
-  return user.getProject(dns, function(err,project){
+  console.log("Loading DNS");
+  return user.getProject(dns);
   
 }).then(function(err,project) {
   if (err) {console.log("Error 2:",err);};
   console.log("Before parse:", project);
-  parsed = JSON.parse(project.toString().trim());
+  var parsed = JSON.parse(project.toString().trim());
+  console.log("Project:", parsed);
   //last function doesn't have to return anything
   
 });
 
-
-
-
-
-
-  var has_dns=true;
-  var parsed;
-  user.getProject(id, function(err,project){
-    if (err) {console.log("Error:",err);};
-    console.log("Before parse:", project);
-    console.log("DNS=", has_dns);
-    if (has_dns) {
-      has_dns=false;
-      console.log("DNS set to", has_dns);
-      parsed = JSON.parse(project.toString().trim());
-      console.log("Project:", parsed);
 //prompt.stop(); //This returns an error, probably because Scratch.UserSession.load also uses prompt and probably calls stop();
