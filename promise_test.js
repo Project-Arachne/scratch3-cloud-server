@@ -48,34 +48,44 @@ function on_change(name,value,session) {
 
 prompt.message = "Please enter the project id of the ";
 prompt.delimiter = "";
-
 prompt.start();
 
 prompt.get(['dns'], function (err, result) {
   if (err) {console.log("Error:", err);};
   var dns=result.dns;
   prompt.message="Please enter your ";
-  Scratch.UserSession.load(function(err, user).then(load_DNS(dns,user););
-    console.log("Session loaded")
-    
-    
-    doSomething()
-.then(function(result) {
-  return doSomethingElse(result);
-})
-.then(function(newResult) {
-  return doThirdThing(newResult);
-})
-.then(function(finalResult) {
-  console.log('Got the final result: ' + finalResult);
-})
-.catch(failureCallback);
-    
-    
-    
-    
-    //var dns_session=connect(dns,user); //connect to DNS project
-    //console.log("DNS session started:", dns_session);
-  });
+  
+}).then(function(dns) {
+  return Scratch.UserSession.load();
+  
+}).then(function(err,user) {
+  if (err) {console.log("Error 1:", err);};
+  console.log("Session loaded");
+  console.log("Loading DNS")
+  return user.getProject(dns, function(err,project){
+  
+}).then(function(err,project) {
+  if (err) {console.log("Error 2:",err);};
+  console.log("Before parse:", project);
+  parsed = JSON.parse(project.toString().trim());
+  //last function doesn't have to return anything
+  
 });
+
+
+
+
+
+
+  var has_dns=true;
+  var parsed;
+  user.getProject(id, function(err,project){
+    if (err) {console.log("Error:",err);};
+    console.log("Before parse:", project);
+    console.log("DNS=", has_dns);
+    if (has_dns) {
+      has_dns=false;
+      console.log("DNS set to", has_dns);
+      parsed = JSON.parse(project.toString().trim());
+      console.log("Project:", parsed);
 //prompt.stop(); //This returns an error, probably because Scratch.UserSession.load also uses prompt and probably calls stop();
