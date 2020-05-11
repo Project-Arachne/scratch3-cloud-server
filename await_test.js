@@ -34,7 +34,7 @@ prompt.message = "Please enter the project id of the ";
 prompt.delimiter = "";
 prompt.start();
 
-await prompt.get(['dns'], function (err, result) {
+prompt.get(['dns'], function (err, result) {
   if (err) {console.log("Error:", err);};
   var dns=result.dns;
   prompt.message="Please enter your ";
