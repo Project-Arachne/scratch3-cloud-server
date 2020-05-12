@@ -34,9 +34,7 @@ prompt_get=util.promisify(prompt.get);
 prompt.message = "Please enter the project id of the ";
 prompt.delimiter = "";
 prompt.start();
-var r1;
-var r2;
-{r1,r2} = await prompt_get(['dns']);
+var r1 = await prompt_get(['dns']);
 //prompt.get(['dns'], function (err, result) {
 //  if (err) {console.log("Error:", err);};
 //  var dns=result.dns;
