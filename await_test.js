@@ -1,7 +1,7 @@
 var Scratch = require('scratch-api');
 var decoder = require('./decode.js'); //TODO: implement this
 const prompt = require('prompt');
-
+const promisify = require('util').promisify;
 //Functions
 
 function connect(id, user) { //TODO: allow option to not listen to changes in the variables
@@ -29,17 +29,18 @@ function on_change(name,value,session) {
 //var res= decoder.test("Hello World");
 //console.log(res);
 
+prompt_get=util.promisify(prompt.get);
 
 prompt.message = "Please enter the project id of the ";
 prompt.delimiter = "";
 prompt.start();
-
-prompt.get(['dns'], function (err, result) {
-  if (err) {console.log("Error:", err);};
-  var dns=result.dns;
-  prompt.message="Please enter your ";
-  
-await Scratch.UserSession.load(function(err,user) {
+{r1,r2}=await prompt_get(['dns'])
+//prompt.get(['dns'], function (err, result) {
+//  if (err) {console.log("Error:", err);};
+//  var dns=result.dns;
+//  prompt.message="Please enter your ";
+concole.log(r1,"and",r2);
+Scratch.UserSession.load(function(err,user) {
   if (err) {console.log("Error 1:", err);};
   console.log("Session loaded");
 });
